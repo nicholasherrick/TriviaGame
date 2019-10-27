@@ -35,3 +35,14 @@ h1 {
 #answers {
     font-size: 70px;
 }
+
+/* Buttons */
+
+button {
+    margin-top: 150px;
+    padding: 50px 100px 50px 100px;
+    font-size: 50px;
+    background-color: coral;
+    color: rebeccapurple;
+    border: black 5px solid;
+}
