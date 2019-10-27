@@ -10,9 +10,7 @@ $(document).ready( function() {
 
     // Declare variables
     var correct = 0;
-    console.log(correct);
     var incorrect = 0;
-    console.log(incorrect);
 
 
     // Start the game on a button click
@@ -23,9 +21,7 @@ $(document).ready( function() {
 
         // Declare variables
         var correct = 0;
-        console.log(correct);
         var incorrect = 0;
-        console.log(incorrect);
 
         // Declare variables for number timer and interval
         var number = 30;
@@ -87,7 +83,7 @@ $(document).ready( function() {
             $("#question").text("Correct!");
             setTimeout(function() {
                 question2();
-            }, 5000);
+            }, 3000);
         }
 
         // Question 1 incorrect screen
@@ -101,7 +97,7 @@ $(document).ready( function() {
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question2();
-            }, 5000);
+            }, 3000);
         }
 
         // Start question 2
@@ -142,7 +138,7 @@ $(document).ready( function() {
             $("#question").text("Correct!");
             setTimeout(function() {
                 question3();
-            }, 5000);
+            }, 3000);
         }
 
         // Question 2 incorrect screen
@@ -156,7 +152,7 @@ $(document).ready( function() {
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question3();
-            }, 5000);
+            }, 3000);
         }
 
         // Start question 3
@@ -197,7 +193,7 @@ $(document).ready( function() {
             $("#question").text("Correct!");
             setTimeout(function() {
                 question4();
-            }, 5000);
+            }, 3000);
         }
 
         // Question 3 incorrect screen
@@ -211,7 +207,7 @@ $(document).ready( function() {
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question4();
-            }, 5000);
+            }, 3000);
         }
 
         // Start question 4
@@ -252,7 +248,7 @@ $(document).ready( function() {
             $("#question").text("Correct!");
             setTimeout(function() {
                 question5();
-            }, 5000);
+            }, 3000);
         }
 
         // Question 4 incorrect screen
@@ -266,7 +262,62 @@ $(document).ready( function() {
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question5();
-            }, 5000);
+            }, 3000);
+        }
+
+        // Start question 5
+        function question5 () {
+            $("#time-remaining").show();
+            $("#question").show();
+            $("#answer1").show();
+            $("#answer2").show();
+            $("#answer3").show();
+            $("#answer4").show();
+            run();
+            $("#question").text("What is 164 - 112?");
+            $("#answer1").html('<button type="button">84</button>');
+            $("#answer2").html('<button type="button">52</button>');
+            $("#answer3").html('<button type="button">48</button>');
+            $("#answer4").html('<button type="button">62</button>');
+            $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                // Determine whether answer was correct, incorrect, or time limit was reached
+                if (this.id == "answer2") {
+                    stop();
+                    question5Correct();
+                }
+                else if (this.id == "#answer1", "#answer3", "#answer4") {
+                    stop();
+                    question5Incorrect();
+                }
+            });
+        };
+
+        // Question 5 correct screen
+        function question5Correct () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            correct++;
+            $("#question").text("Correct!");
+            setTimeout(function() {
+                gameOver();
+            }, 3000);
+        }
+
+        // Question 5 incorrect screen
+        function question5Incorrect () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            incorrect++;
+            $("#question").text("Incorrect!");
+            setTimeout(function() {
+                gameOver();
+            }, 3000);
         }
 
 
