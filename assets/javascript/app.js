@@ -186,7 +186,7 @@ $(document).ready( function() {
             });
         };
 
-        // Question 2 correct screen
+        // Question 3 correct screen
         function question3Correct () {
             $("#time-remaining").hide();
             $("#answer1").hide();
@@ -200,7 +200,7 @@ $(document).ready( function() {
             }, 5000);
         }
 
-        // Question 2 incorrect screen
+        // Question 3 incorrect screen
         function question3Incorrect () {
             $("#time-remaining").hide();
             $("#answer1").hide();
@@ -213,6 +213,62 @@ $(document).ready( function() {
                 question4();
             }, 5000);
         }
+
+        // Start question 4
+        function question4 () {
+            $("#time-remaining").show();
+            $("#question").show();
+            $("#answer1").show();
+            $("#answer2").show();
+            $("#answer3").show();
+            $("#answer4").show();
+            run();
+            $("#question").text("What is 4 / .5?");
+            $("#answer1").html('<button type="button">4</button>');
+            $("#answer2").html('<button type="button">16</button>');
+            $("#answer3").html('<button type="button">12</button>');
+            $("#answer4").html('<button type="button">8</button>');
+            $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                // Determine whether answer was correct, incorrect, or time limit was reached
+                if (this.id == "answer4") {
+                    stop();
+                    question4Correct();
+                }
+                else if (this.id == "#answer1", "#answer2", "#answer3") {
+                    stop();
+                    question4Incorrect();
+                }
+            });
+        };
+
+        // Question 4 correct screen
+        function question4Correct () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            correct++;
+            $("#question").text("Correct!");
+            setTimeout(function() {
+                question5();
+            }, 5000);
+        }
+
+        // Question 4 incorrect screen
+        function question4Incorrect () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            incorrect++;
+            $("#question").text("Incorrect!");
+            setTimeout(function() {
+                question5();
+            }, 5000);
+        }
+
 
 
         // After last question, display final score along with a restart button
