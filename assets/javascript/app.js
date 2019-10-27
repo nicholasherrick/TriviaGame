@@ -6,6 +6,7 @@ $(document).ready( function() {
     $("#time-remaining").hide();
     $("#question").hide();
     $("#answers").hide();
+    $("#restart-button").hide();
 
     // Declare Variables
     var correct = 0;
