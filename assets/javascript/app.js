@@ -50,6 +50,7 @@ $(document).ready( function() {
             if (number === 0) {
                 stop()
                 alert("Times Up!")
+                question1Incorrect();
             };
         };
         run();
@@ -98,7 +99,26 @@ $(document).ready( function() {
             question2();
         }
 
-        // Display question 1 with timer
+        question2();
+        function question1 () {
+            $("#question").text("What is 2 + 2?");
+            $("#answer1").append('<button type="button">4</button>');
+            $("#answer2").append('<button type="button">0</button>');
+            $("#answer3").append('<button type="button">8</button>');
+            $("#answer4").append('<button type="button">2</button>');
+            $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                if (this.id == "answer1") {
+                    stop();
+                    question1Correct();
+                }
+                else if (this.id == "#answer2", "#answer3", "#answer4") {
+                    stop();
+                    question1Incorrect();
+                }
+            });
+        };
+
+
 
         // Determine whether answer was correct, incorrect, or time limit was reached
 
