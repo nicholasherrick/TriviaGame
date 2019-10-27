@@ -1,6 +1,6 @@
 // Load html first
 
-$(document).ready( function() {
+$(document).ready( function begin() {
 
     // hide everything except for start button
     $("#time-remaining").hide();
@@ -55,10 +55,10 @@ $(document).ready( function() {
         question1();
         function question1 () {
             $("#question").text("What is 2 + 2?");
-            $("#answer1").append('<button type="button">4</button>');
-            $("#answer2").append('<button type="button">0</button>');
-            $("#answer3").append('<button type="button">8</button>');
-            $("#answer4").append('<button type="button">2</button>');
+            $("#answer1").html('<button type="button">4</button>');
+            $("#answer2").html('<button type="button">0</button>');
+            $("#answer3").html('<button type="button">8</button>');
+            $("#answer4").html('<button type="button">2</button>');
             $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
                 // Determine whether answer was correct, incorrect, or time limit was reached
                 if (this.id == "answer1") {
@@ -320,9 +320,23 @@ $(document).ready( function() {
             }, 3000);
         }
 
-
-
         // After last question, display final score along with a restart button
+        function gameOver() {
+            stop()
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            $("#question").show();
+            $("#restart-button").show();
+            $("#question").html("Game Over!");
+            $("#empty-div1").append("Correct Answers: " + correct);
+            $("#empty-div2").append("Incorrect Answers: " + incorrect);
+            $("#restart-button").on("click", function() {
+                begin();
+            });
+        }
 
     });
 
