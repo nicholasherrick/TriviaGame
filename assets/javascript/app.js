@@ -20,6 +20,37 @@ $(document).ready( function() {
         $("#question").show();
         $("#answers").show();
 
+        // Declare variables for number timer and interval
+        var number = 30;
+        var intervalId;
+
+        // Add run function to set the interval
+        function run() {
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement, 1000);
+        };
+
+        // Add function to stop timer
+        function stop() {
+            clearInterval(intervalId);
+        }
+
+        // Add the question timer
+        function decrement() {
+            number--;
+            $("#time-remaining span").html(number);
+            if (number === 0) {
+                stop()
+                alert("Times Up!")
+            };
+        };
+        run();
+
+        // Declare function question variables
+        var question1 = function () {
+            $("#timeremaining").show();
+        };
+
         // Display question 1 with timer
 
         // Determine whether answer was correct, incorrect, or time limit was reached
