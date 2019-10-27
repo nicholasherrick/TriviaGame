@@ -2,7 +2,15 @@
 
 $(document).ready( function() {
 
+    // hide everything except for start button
+    $("#time-remaining").hide();
+    $("#question").hide();
+    $("#answers").hide();
+
     // Declare Variables
+    var correct = 0;
+    var incorrect = 0;
+
 
     // Start the game on a button click
 
