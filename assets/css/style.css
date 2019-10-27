@@ -38,6 +38,18 @@ h1 {
     font-size: 70px;
 }
 
+#empty-div1 {
+    margin-top: 15px;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+#empty-div2 {
+    margin-top: 15px;
+    font-size: 45px;
+    font-weight: bold;
+}
+
 /* Buttons */
 
 button {
@@ -46,6 +58,11 @@ button {
     background-color: coral;
     border: black 5px solid;
     margin-top: 10px;
+    width: 50%;
+}
+
+button:hover{
+    background-color: yellow;
 }
 
 .main-button {

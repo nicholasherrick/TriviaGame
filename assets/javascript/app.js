@@ -1,60 +1,72 @@
 // Load html first
 
-$(document).ready( function begin() {
+$(document).ready( function () {
 
     // hide everything except for start button
     $("#time-remaining").hide();
     $("#question").hide();
     $("#answers").hide();
     $("#restart-button").hide();
+    $("#empty-div1").hide();
+    $("#empty-div2").hide();
 
-    // Declare variables
-    var correct = 0;
-    var incorrect = 0;
-
+    // Reset game
+    function resetGame() {
+        $("#empty-div1").hide();
+        $("#empty-div2").hide();
+        $("#question").hide();
+        $("#restart-button").hide();
+        $("#start-button").show();
+    };
 
     // Start the game on a button click
-    $("#start-button").on("click", function (startGame) {
+    $("#start-button").on("click", function startGame() {
         $("#start-button").hide();
         $("#time-remaining").show();
         $("#question").show();
 
-        // Declare variables
-        var correct = 0;
-        var incorrect = 0;
-
-        // Declare variables for number timer and interval
-        var number = 30;
-        var intervalId;
-
-        // Add run function to set the interval
-        function run() {
-            clearInterval(intervalId);
-            intervalId = setInterval(decrement, 1000);
-        };
-
-        // Add function to stop timer
-        function stop() {
-            clearInterval(intervalId);
-        }
-
-        // Add the question timer
-        function decrement() {
-            number--;
-            $("#time-remaining span").html(number);
-            if (number === 0) {
-                stop()
-                alert("Times Up!")
-                question1Incorrect();
-            };
-        };
-
-        run();
-
         // Start question 1
         question1();
         function question1 () {
-            $("#question").text("What is 2 + 2?");
+            // Declare variables for number timer and interval
+            var number = 30;
+            var intervalId;
+
+            // Add run function to set the interval
+            function run() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+            };
+
+            // Add function to stop timer
+            function stop() {
+                clearInterval(intervalId);
+            }
+
+            // Add the question timer
+            function decrement() {
+                number--;
+                $("#time-remaining span").html(number);
+                if (number === 0) {
+                    stop()
+                    $("#question").html("Times Up!");
+                    $("#answer1").hide();
+                    $("#answer2").hide();
+                    $("#answer3").hide();
+                    $("#answer4").hide();
+                    setTimeout(function() {
+                        question1Incorrect();
+                    }, 3000);
+
+                };
+            };
+            run();
+            $("#question").html("What is 2 + 2?");
+            // Add .show so the answer choices appear again after a game reset
+            $("#answer1").show();
+            $("#answer2").show();
+            $("#answer3").show();
+            $("#answer4").show();
             $("#answer1").html('<button type="button">4</button>');
             $("#answer2").html('<button type="button">0</button>');
             $("#answer3").html('<button type="button">8</button>');
@@ -67,7 +79,16 @@ $(document).ready( function begin() {
                 }
                 else if (this.id == "#answer2", "#answer3", "#answer4") {
                     stop();
-                    question1Incorrect();
+                    $("#question").html("Incorrect!")
+                    $("#time-remaining").hide();
+                    $("#answer1").hide();
+                    $("#answer2").hide();
+                    $("#answer3").hide();
+                    $("#answer4").hide();
+                    setTimeout(function() {
+                        question1Incorrect();
+                    }, 3000);
+
                 }
             });
         };
@@ -79,8 +100,9 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            correct++;
-            $("#question").text("Correct!");
+            // correct++;
+            // console.log(correct);
+            $("#question").html("Correct!");
             setTimeout(function() {
                 question2();
             }, 3000);
@@ -93,8 +115,9 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            incorrect++;
-            $("#question").text("Incorrect!");
+            // incorrect++;
+            // console.log(incorrect);
+            $("#question").html("The Correct answer was: 4");
             setTimeout(function() {
                 question2();
             }, 3000);
@@ -102,6 +125,32 @@ $(document).ready( function begin() {
 
         // Start question 2
         function question2 () {
+            // Declare variables for number timer and interval
+            var number = 30;
+            var intervalId;
+
+            // Add run function to set the interval
+            function run() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+            };
+
+            // Add function to stop timer
+            function stop() {
+                clearInterval(intervalId);
+            }
+
+            // Add the question timer
+            function decrement() {
+                number--;
+                $("#time-remaining span").html(number);
+                if (number === 0) {
+                    stop()
+                    alert("Times Up!")
+                    question2Incorrect();
+                };
+            };
+            run();
             $("#time-remaining").show();
             $("#question").show();
             $("#answer1").show();
@@ -109,7 +158,7 @@ $(document).ready( function begin() {
             $("#answer3").show();
             $("#answer4").show();
             run();
-            $("#question").text("What is 9 * 0?");
+            $("#question").html("What is 9 * 0?");
             $("#answer1").html('<button type="button">9</button>');
             $("#answer2").html('<button type="button">-9</button>');
             $("#answer3").html('<button type="button">0</button>');
@@ -134,7 +183,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            correct++;
+            // correct++;
+            // console.log(correct);
             $("#question").text("Correct!");
             setTimeout(function() {
                 question3();
@@ -148,7 +198,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            incorrect++;
+            // incorrect++;
+            // console.log(incorrect);
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question3();
@@ -157,6 +208,32 @@ $(document).ready( function begin() {
 
         // Start question 3
         function question3 () {
+            // Declare variables for number timer and interval
+            var number = 30;
+            var intervalId;
+
+            // Add run function to set the interval
+            function run() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+            };
+
+            // Add function to stop timer
+            function stop() {
+                clearInterval(intervalId);
+            }
+
+            // Add the question timer
+            function decrement() {
+                number--;
+                $("#time-remaining span").html(number);
+                if (number === 0) {
+                    stop()
+                    alert("Times Up!")
+                    question3Incorrect();
+                };
+            };
+            run();
             $("#time-remaining").show();
             $("#question").show();
             $("#answer1").show();
@@ -164,7 +241,7 @@ $(document).ready( function begin() {
             $("#answer3").show();
             $("#answer4").show();
             run();
-            $("#question").text("What is 17 - 21?");
+            $("#question").html("What is 17 - 21?");
             $("#answer1").html('<button type="button">-6</button>');
             $("#answer2").html('<button type="button">6</button>');
             $("#answer3").html('<button type="button">-4</button>');
@@ -189,7 +266,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            correct++;
+            // correct++;
+            // console.log(correct);
             $("#question").text("Correct!");
             setTimeout(function() {
                 question4();
@@ -203,7 +281,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            incorrect++;
+            // incorrect++;
+            // console.log(incorrect);
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question4();
@@ -212,6 +291,32 @@ $(document).ready( function begin() {
 
         // Start question 4
         function question4 () {
+            // Declare variables for number timer and interval
+            var number = 30;
+            var intervalId;
+
+            // Add run function to set the interval
+            function run() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+            };
+
+            // Add function to stop timer
+            function stop() {
+                clearInterval(intervalId);
+            }
+
+            // Add the question timer
+            function decrement() {
+                number--;
+                $("#time-remaining span").html(number);
+                if (number === 0) {
+                    stop()
+                    alert("Times Up!")
+                    question4Incorrect();
+                };
+            };
+            run();
             $("#time-remaining").show();
             $("#question").show();
             $("#answer1").show();
@@ -219,7 +324,7 @@ $(document).ready( function begin() {
             $("#answer3").show();
             $("#answer4").show();
             run();
-            $("#question").text("What is 4 / .5?");
+            $("#question").html("What is 4 / .5?");
             $("#answer1").html('<button type="button">4</button>');
             $("#answer2").html('<button type="button">16</button>');
             $("#answer3").html('<button type="button">12</button>');
@@ -244,7 +349,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            correct++;
+            // correct++;
+            // console.log(correct);
             $("#question").text("Correct!");
             setTimeout(function() {
                 question5();
@@ -258,7 +364,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            incorrect++;
+            // incorrect++;
+            // console.log(incorrect);
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 question5();
@@ -267,6 +374,32 @@ $(document).ready( function begin() {
 
         // Start question 5
         function question5 () {
+            // Declare variables for number timer and interval
+            var number = 30;
+            var intervalId;
+
+            // Add run function to set the interval
+            function run() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+            };
+
+            // Add function to stop timer
+            function stop() {
+                clearInterval(intervalId);
+            }
+
+            // Add the question timer
+            function decrement() {
+                number--;
+                $("#time-remaining span").html(number);
+                if (number === 0) {
+                    stop()
+                    alert("Times Up!")
+                    gameOver();
+                };
+            };
+            run();
             $("#time-remaining").show();
             $("#question").show();
             $("#answer1").show();
@@ -274,7 +407,7 @@ $(document).ready( function begin() {
             $("#answer3").show();
             $("#answer4").show();
             run();
-            $("#question").text("What is 164 - 112?");
+            $("#question").html("What is 164 - 112?");
             $("#answer1").html('<button type="button">84</button>');
             $("#answer2").html('<button type="button">52</button>');
             $("#answer3").html('<button type="button">48</button>');
@@ -299,7 +432,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            correct++;
+            // correct++;
+            // console.log(correct);
             $("#question").text("Correct!");
             setTimeout(function() {
                 gameOver();
@@ -313,7 +447,8 @@ $(document).ready( function begin() {
             $("#answer2").hide();
             $("#answer3").hide();
             $("#answer4").hide();
-            incorrect++;
+            // incorrect++;
+            // console.log(incorrect);
             $("#question").text("Incorrect!");
             setTimeout(function() {
                 gameOver();
@@ -331,10 +466,12 @@ $(document).ready( function begin() {
             $("#question").show();
             $("#restart-button").show();
             $("#question").html("Game Over!");
-            $("#empty-div1").append("Correct Answers: " + correct);
-            $("#empty-div2").append("Incorrect Answers: " + incorrect);
+            $("#empty-div1").show();
+            $("#empty-div2").show();
+            // $("#empty-div1").append("Correct Answers: " + correct);
+            // $("#empty-div2").append("Incorrect Answers: " + incorrect);
             $("#restart-button").on("click", function() {
-                begin();
+                resetGame();
             });
         }
 
