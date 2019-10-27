@@ -64,6 +64,7 @@ $(document).ready( function() {
             $("#answer3").append('<button type="button">8</button>');
             $("#answer4").append('<button type="button">2</button>');
             $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                // Determine whether answer was correct, incorrect, or time limit was reached
                 if (this.id == "answer1") {
                     stop();
                     question1Correct();
@@ -118,6 +119,7 @@ $(document).ready( function() {
             $("#answer3").html('<button type="button">0</button>');
             $("#answer4").html('<button type="button">18</button>');
             $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                // Determine whether answer was correct, incorrect, or time limit was reached
                 if (this.id == "answer3") {
                     stop();
                     question2Correct();
@@ -129,7 +131,7 @@ $(document).ready( function() {
             });
         };
 
-        // Question 1 correct screen
+        // Question 2 correct screen
         function question2Correct () {
             $("#time-remaining").hide();
             $("#answer1").hide();
@@ -143,7 +145,7 @@ $(document).ready( function() {
             }, 5000);
         }
 
-        // Question 1 incorrect screen
+        // Question 2 incorrect screen
         function question2Incorrect () {
             $("#time-remaining").hide();
             $("#answer1").hide();
@@ -157,13 +159,61 @@ $(document).ready( function() {
             }, 5000);
         }
 
+        // Start question 3
+        function question3 () {
+            $("#time-remaining").show();
+            $("#question").show();
+            $("#answer1").show();
+            $("#answer2").show();
+            $("#answer3").show();
+            $("#answer4").show();
+            run();
+            $("#question").text("What is 17 - 21?");
+            $("#answer1").html('<button type="button">-6</button>');
+            $("#answer2").html('<button type="button">6</button>');
+            $("#answer3").html('<button type="button">-4</button>');
+            $("#answer4").html('<button type="button">4</button>');
+            $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                // Determine whether answer was correct, incorrect, or time limit was reached
+                if (this.id == "answer3") {
+                    stop();
+                    question3Correct();
+                }
+                else if (this.id == "#answer1", "#answer2", "#answer4") {
+                    stop();
+                    question3Incorrect();
+                }
+            });
+        };
 
+        // Question 2 correct screen
+        function question3Correct () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            correct++;
+            $("#question").text("Correct!");
+            setTimeout(function() {
+                question4();
+            }, 5000);
+        }
 
-        // Determine whether answer was correct, incorrect, or time limit was reached
+        // Question 2 incorrect screen
+        function question3Incorrect () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            incorrect++;
+            $("#question").text("Incorrect!");
+            setTimeout(function() {
+                question4();
+            }, 5000);
+        }
 
-        // Log the results into a scorekeeper variable
-
-        // Display next question, rinse and repeat
 
         // After last question, display final score along with a restart button
 
