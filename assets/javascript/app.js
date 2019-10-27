@@ -8,7 +8,7 @@ $(document).ready( function() {
     $("#answers").hide();
     $("#restart-button").hide();
 
-    // Declare Variables
+    // Declare global variables
     var correct = 0;
     var incorrect = 0;
 
@@ -47,8 +47,27 @@ $(document).ready( function() {
         run();
 
         // Declare function question variables
-        var question1 = function () {
-            $("#timeremaining").show();
+        question1();
+        function question1 () {
+            $("#question").text("What is 2 + 2?");
+            $("#answer1").append('<button type="button">4</button>');
+            $("#answer2").append('<button type="button">0</button>');
+            $("#answer3").append('<button type="button">8</button>');
+            $("#answer4").append('<button type="button">2</button>');
+            $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+                if (this.id == "answer1") {
+                    stop();
+                    correct++;
+                    alert("Correct!");
+                    question1Correct();
+                }
+                else if (this.id == "#answer2", "#answer3", "#answer4") {
+                    stop();
+                    incorrect++;
+                    alert("Incorrect!");
+                    question1Incorrect();
+                }
+            });
         };
 
         // Display question 1 with timer
