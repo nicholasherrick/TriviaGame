@@ -20,7 +20,6 @@ $(document).ready( function() {
         $("#start-button").hide();
         $("#time-remaining").show();
         $("#question").show();
-        $("#answers").show();
 
         // Declare variables
         var correct = 0;
@@ -53,6 +52,7 @@ $(document).ready( function() {
                 question1Incorrect();
             };
         };
+
         run();
 
         // Start question 1
@@ -84,7 +84,9 @@ $(document).ready( function() {
             $("#answer4").hide();
             correct++;
             $("#question").text("Correct!");
-            question2();
+            setTimeout(function() {
+                question2();
+            }, 5000);
         }
 
         // Question 1 incorrect screen
@@ -96,27 +98,64 @@ $(document).ready( function() {
             $("#answer4").hide();
             incorrect++;
             $("#question").text("Incorrect!");
-            question2();
+            setTimeout(function() {
+                question2();
+            }, 5000);
         }
 
-        question2();
-        function question1 () {
-            $("#question").text("What is 2 + 2?");
-            $("#answer1").append('<button type="button">4</button>');
-            $("#answer2").append('<button type="button">0</button>');
-            $("#answer3").append('<button type="button">8</button>');
-            $("#answer4").append('<button type="button">2</button>');
+        // Start question 2
+        function question2 () {
+            $("#time-remaining").show();
+            $("#question").show();
+            $("#answer1").show();
+            $("#answer2").show();
+            $("#answer3").show();
+            $("#answer4").show();
+            run();
+            $("#question").text("What is 9 * 0?");
+            $("#answer1").html('<button type="button">9</button>');
+            $("#answer2").html('<button type="button">-9</button>');
+            $("#answer3").html('<button type="button">0</button>');
+            $("#answer4").html('<button type="button">18</button>');
             $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
-                if (this.id == "answer1") {
+                if (this.id == "answer3") {
                     stop();
-                    question1Correct();
+                    question2Correct();
                 }
-                else if (this.id == "#answer2", "#answer3", "#answer4") {
+                else if (this.id == "#answer1", "#answer2", "#answer4") {
                     stop();
-                    question1Incorrect();
+                    question2Incorrect();
                 }
             });
         };
+
+        // Question 1 correct screen
+        function question2Correct () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            correct++;
+            $("#question").text("Correct!");
+            setTimeout(function() {
+                question3();
+            }, 5000);
+        }
+
+        // Question 1 incorrect screen
+        function question2Incorrect () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            incorrect++;
+            $("#question").text("Incorrect!");
+            setTimeout(function() {
+                question3();
+            }, 5000);
+        }
 
 
 
