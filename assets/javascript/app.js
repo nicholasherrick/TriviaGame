@@ -8,9 +8,11 @@ $(document).ready( function() {
     $("#answers").hide();
     $("#restart-button").hide();
 
-    // Declare global variables
+    // Declare variables
     var correct = 0;
+    console.log(correct);
     var incorrect = 0;
+    console.log(incorrect);
 
 
     // Start the game on a button click
@@ -19,6 +21,12 @@ $(document).ready( function() {
         $("#time-remaining").show();
         $("#question").show();
         $("#answers").show();
+
+        // Declare variables
+        var correct = 0;
+        console.log(correct);
+        var incorrect = 0;
+        console.log(incorrect);
 
         // Declare variables for number timer and interval
         var number = 30;
@@ -46,7 +54,7 @@ $(document).ready( function() {
         };
         run();
 
-        // Declare function question variables
+        // Start question 1
         question1();
         function question1 () {
             $("#question").text("What is 2 + 2?");
@@ -57,18 +65,38 @@ $(document).ready( function() {
             $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
                 if (this.id == "answer1") {
                     stop();
-                    correct++;
-                    alert("Correct!");
                     question1Correct();
                 }
                 else if (this.id == "#answer2", "#answer3", "#answer4") {
                     stop();
-                    incorrect++;
-                    alert("Incorrect!");
                     question1Incorrect();
                 }
             });
         };
+
+        // Question 1 correct screen
+        function question1Correct () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            correct++;
+            $("#question").text("Correct!");
+            question2();
+        }
+
+        // Question 1 incorrect screen
+        function question1Incorrect () {
+            $("#time-remaining").hide();
+            $("#answer1").hide();
+            $("#answer2").hide();
+            $("#answer3").hide();
+            $("#answer4").hide();
+            incorrect++;
+            $("#question").text("Incorrect!");
+            question2();
+        }
 
         // Display question 1 with timer
 
