@@ -1,45 +1,43 @@
 $(document).ready( function() {
 
+    var answer1 = $("#answer1");
+    var answer2 = $("#answer2");
+    var answer3 = $("#answer3");
+    var answer4 = $("#answer4");
+
     var questions = [
         {
-            question1: {
-                question: "1. What is 2 + 2?",
-                answer1: "4",
-                answer2: "0",
-                answer3: "8",
-                answer4: "2",
-            },
-            question2: {
-                question: "2. What is 9 * 0?",
-                answer1: "9",
-                answer2: "-9",
-                answer3: "0",
-                answer4: "18",
-            },
-            question3: {
-                question: "3. What is 17 - 21??",
-                answer1: "-6",
-                answer2: "6",
-                answer3: "-4",
-                answer4: "4",
-            },
-            question4: {
-                question: "4. What is 4 / .5?",
-                answer1: "4",
-                answer2: "16",
-                answer3: "12",
-                answer4: "8",
-            },
-            question5: {
-                question: "5. What is 164 - 112?",
-                answer1: "84",
-                answer2: "52",
-                answer3: "48",
-                answer4: "62",
-            },
+
+            question: "1. What is 2 + 2?",
+            choices: ["4", "0", "8", "2"],
+            answer: "4"
+        },
+        {
+            question: "2. What is 9 * 0?",
+            choices: ["9", "-9", "0", "18"],
+            answer: "0"
+        },
+        {
+            question: "3. What is 17 - 21??",
+            choices: ["-6", "6", "-4", "4"],
+            answer: "-4"
+        },
+        {
+            question: "4. What is 4 / .5?",
+            choices: ["4", "16", "12", "8"],
+            answer: "8"
+        },
+        {
+            question: "5. What is 164 - 112?",
+            choices: ["84", "52", "48", "62"],
+            answer: "52"
         },
     ]
+    var correct = 0;
 
+    for (var i = 0; i < questions.length; i++) {
+        var questionFeeder = questions[i];
+    }
 
 
 
