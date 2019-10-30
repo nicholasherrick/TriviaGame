@@ -1,5 +1,6 @@
 $(document).ready( function() {
     $("#time-remaining").hide();
+    $(".buttons").hide();
     $("#question").hide();
     $("#restart-button").hide();
     $("#start-button").on("click", startGame);
@@ -7,6 +8,7 @@ $(document).ready( function() {
 
 var startGame = function() {
     $("#start-button").hide();
+    $(".buttons").show();
     $("#time-remaining").show();
     $("#question").show();
     showQuestions();
@@ -53,19 +55,25 @@ function showQuestions() {
     var choice3 = $("#answer3");
     var choice4 = $("#answer4");
 
+    var answer1;
+    var answer2;
+    var answer3;
+    var answer4;
+
     for (var i = 0; i < questions.length; i++) {
         questionElement.html(questions[i].question);
+
+        answer1 = questions[i].choices[0];
+        answer2 = questions[i].choices[1];
+        answer3 = questions[i].choices[2];
+        answer4 = questions[i].choices[3];
+
+        choice1.html(answer1);
+        choice2.html(answer2);
+        choice3.html(answer3);
+        choice4.html(answer4);
+
     };
-
-    var answer1 = questions[i].choices[0];
-    var answer2 = questions[i].choices[1];
-    var answer3 = questions[i].choices[2];
-    var answer4 = questions[i].choices[3];
-
-    choice1.html(answer1);
-    choice2.html(answer2);
-    choice3.html(answer3);
-    choice4.html(answer4);
 
 
 };
