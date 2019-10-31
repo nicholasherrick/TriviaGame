@@ -41,6 +41,7 @@ function stopClock() {
 // };
 
 function question1() {
+    $(".buttons, #time-remaining, #question").show();
     $("#question").html(questions[0].question);
     $("#answer1").html(questions[0].choices[0]);
     $("#answer2").html(questions[0].choices[1]);
@@ -49,27 +50,30 @@ function question1() {
     timer();
     // Starts a timer for question 1
     function timer() {
+        number = 5;
         $("#time-remaining span").html(number);
-    }
-    if (!clockRunning) {
-        clearInterval(intervalId);
-        intervalId = setInterval(decrement, 1000);
-        clockRunning = true;
-    };
-    function decrement() {
-        number--;
-        console.log(number);
-        $("#time-remaining span").html(number);
-        // When time runs out, ends the question with an incorrect
-        if (number === 0) {
-            stopClock();
-            $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
-            $("#question").html("Times Up! The correct answer was " + questions[0].choices[0]);
-            incorrect++;
-            console.log("Correct: " + correct);
-            console.log("Incorrect: " + incorrect);
-            question2();
-        }
+        if (!clockRunning) {
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement, 1000);
+            clockRunning = true;
+        };
+        function decrement() {
+            number--;
+            console.log(number);
+            $("#time-remaining span").html(number);
+            // When time runs out, ends the question with an incorrect
+            if (number === 0) {
+                stopClock();
+                $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
+                $("#question").html("Times Up! The correct answer was " + questions[0].choices[0]);
+                incorrect++;
+                console.log("Correct: " + correct);
+                console.log("Incorrect: " + incorrect);
+                setTimeout(function() {
+                    question2();
+                }, 3000);
+            }
+        };
     };
     $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
         
@@ -95,6 +99,70 @@ function question1() {
             console.log("Incorrect: " + incorrect);
             setTimeout(function() {
                 question2();
+            }, 3000);
+        };
+    });
+};
+
+function question2() {
+    $(".buttons, #time-remaining, #question").show();
+    $("#question").html(questions[1].question);
+    $("#answer1").html(questions[1].choices[0]);
+    $("#answer2").html(questions[1].choices[1]);
+    $("#answer3").html(questions[1].choices[2]);
+    $("#answer4").html(questions[1].choices[3]);
+    timer();
+    // Starts a timer for question 1
+    function timer() {
+        number = 5;
+        $("#time-remaining span").html(number);
+        if (!clockRunning) {
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement, 1000);
+            clockRunning = true;
+        };
+        function decrement() {
+            number--;
+            console.log(number);
+            $("#time-remaining span").html(number);
+            // When time runs out, ends the question with an incorrect
+            if (number === 0) {
+                stopClock();
+                $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
+                $("#question").html("Times Up! The correct answer was " + questions[1].choices[2]);
+                incorrect++;
+                console.log("Correct: " + correct);
+                console.log("Incorrect: " + incorrect);
+                setTimeout(function() {
+                    question3();
+                }, 3000);
+            }
+        };
+    };
+    $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+        
+        // Determine whether answer was correct, incorrect
+        if (this.id == "answer3") {
+            stopClock();
+            $("#time-remaining").hide();
+            $("#answer1, #answer2, #answer3, #answer4").hide();
+            $("#question").html("Correct!");
+            correct++;
+            console.log("Correct: " + correct);
+            console.log("Incorrect: " + incorrect);
+            setTimeout(function() {
+                question3();
+            }, 3000);
+        }
+        else if (this.id == "#answer1", "#answer2", "#answer4") {
+            stopClock();
+            $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
+            $("#question").html("Inorrect! The correct answer was " + questions[1].choices[2]);
+            incorrect++;
+            console.log("Correct: " + correct);
+            console.log("Incorrect: " + incorrect);
+            setTimeout(function() {
+                question3();
             }, 3000);
         };
     });
