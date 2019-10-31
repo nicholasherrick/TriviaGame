@@ -1,18 +1,14 @@
 $(document).ready( function() {
-    $("#time-remaining").hide();
-    $(".buttons").hide();
-    $("#question").hide();
-    $("#restart-button").hide();
+    $(".buttons, #time-remaining, #question, #restart-button").hide();
     $("#start-button").on("click", startGame);
 });
 
 var startGame = function() {
     $("#start-button").hide();
-    $(".buttons").show();
-    $("#time-remaining").show();
-    $("#question").show();
-    showQuestions();
-    startClock();
+    $(".buttons, #time-remaining, #question").show();
+    // showQuestions();
+    // showChoices();
+    question1();
 };
 
 
@@ -20,65 +16,116 @@ var startGame = function() {
 var number = 5;
 var intervalId;
 var clockRunning = false;
+var correct = 0;
+console.log("Correct: " + correct);
+var incorrect = 0;
+console.log("Incorrect: " + incorrect);
 
-function startClock() {
-    number = 5;
-    $("#time-remaining span").html(number);
-    if (!clockRunning) {
-        clearInterval(intervalId);
-        intervalId = setInterval(decrement, 1000);
-        clockRunning = true;
-    };
-};
-
-// Add function to stop timer
 function stopClock() {
     clearInterval(intervalId);
     clockRunning = false;
 };
 
-// Add the question timer
-function decrement() {
-    number--;
-    console.log(number);
-    $("#time-remaining span").html(number);
-    if (number === 0) {
-        stopClock();
-    }
-}
-
 // Display the Questions
-function showQuestions() {
-    var questionElement = $("#question");
-    var choice1 = $("#answer1");
-    var choice2 = $("#answer2");
-    var choice3 = $("#answer3");
-    var choice4 = $("#answer4");
+// function showQuestions() {
+//     var questionElement = $("#question");
 
-    var answer1;
-    var answer2;
-    var answer3;
-    var answer4;
+//     for (var i = 0; i < questions.length; i++) {
+//         // questionElement.html(questions[i].question);
+    
 
-    for (var i = 0; i < questions.length; i++) {
-        questionElement.html(questions[i].question);
 
-        answer1 = questions[i].choices[0];
-        answer2 = questions[i].choices[1];
-        answer3 = questions[i].choices[2];
-        answer4 = questions[i].choices[3];
+//     };
 
-        choice1.html(answer1);
-        choice2.html(answer2);
-        choice3.html(answer3);
-        choice4.html(answer4);
 
+// };
+
+function question1() {
+    $("#question").html(questions[0].question);
+    $("#answer1").html(questions[0].choices[0]);
+    $("#answer2").html(questions[0].choices[1]);
+    $("#answer3").html(questions[0].choices[2]);
+    $("#answer4").html(questions[0].choices[3]);
+    timer();
+    // Starts a timer for question 1
+    function timer() {
+        $("#time-remaining span").html(number);
+    }
+    if (!clockRunning) {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+        clockRunning = true;
     };
-
-
+    function decrement() {
+        number--;
+        console.log(number);
+        $("#time-remaining span").html(number);
+        // When time runs out, ends the question with an incorrect
+        if (number === 0) {
+            stopClock();
+            $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
+            $("#question").html("Times Up! The correct answer was " + questions[0].choices[0]);
+            incorrect++;
+            console.log("Correct: " + correct);
+            console.log("Incorrect: " + incorrect);
+            question2();
+        }
+    };
+    $("#answer1, #answer2, #answer3, #answer4").on("click", function () {
+        
+        // Determine whether answer was correct, incorrect
+        if (this.id == "answer1") {
+            stopClock();
+            $("#time-remaining").hide();
+            $("#answer1, #answer2, #answer3, #answer4").hide();
+            $("#question").html("Correct!");
+            correct++;
+            console.log("Correct: " + correct);
+            console.log("Incorrect: " + incorrect);
+            setTimeout(function() {
+                question2();
+            }, 3000);
+        }
+        else if (this.id == "#answer2", "#answer3", "#answer4") {
+            stopClock();
+            $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
+            $("#question").html("Inorrect! The correct answer was " + questions[0].choices[0]);
+            incorrect++;
+            console.log("Correct: " + correct);
+            console.log("Incorrect: " + incorrect);
+            setTimeout(function() {
+                question2();
+            }, 3000);
+        };
+    });
 };
 
-var correct = 0;
+// function showChoices() {
+//     var choice1 = $("#answer1");
+//     var choice2 = $("#answer2");
+//     var choice3 = $("#answer3");
+//     var choice4 = $("#answer4");
+
+//     var answer1;
+//     var answer2;
+//     var answer3;
+//     var answer4;
+
+//     for (var i = 0; i < questions.length; i++) {
+
+//         answer1 = questions[i].choices[0];
+//         answer2 = questions[i].choices[1];
+//         answer3 = questions[i].choices[2];
+//         answer4 = questions[i].choices[3];
+
+//         // choice1.html(answer1);
+//         // choice2.html(answer2);
+//         // choice3.html(answer3);
+//         // choice4.html(answer4);
+
+//     };
+
+// };
 
 
 
