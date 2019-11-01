@@ -2,7 +2,7 @@
 $(document).ready( function() {
 
     // Hides everything we dont need
-    $(".buttons, #time-remaining, #question, #restart-button").hide();
+    $(".buttons, #time-remaining, #question, #restart-button, #empty-div1, #empty-div2, #empty-div3").hide();
 
     // Start the game by clicking the start button
     $("#start-button").on("click", startGame);
@@ -450,7 +450,7 @@ function question5() {
 function gameOver() {
     stopClock();
     $("#time-remaining, .buttons").hide();
-    $("#question, #restart-button, #empty-div1, #empty-div2").show();
+    $("#question, #restart-button, #empty-div1, #empty-div2, #empty-div3").show();
     $("#question").html("Game Over!");
 
     // Display our empty divs and put our final score inside
