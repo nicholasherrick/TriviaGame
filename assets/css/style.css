@@ -53,12 +53,15 @@ h1 {
 /* Buttons */
 
 button {
+    display: block;
     text-align: center;
     font-size: 40px;
     padding: 15px 100px 15px 100px;
     background-color: coral;
     border: black 5px solid;
     margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
 }
 
