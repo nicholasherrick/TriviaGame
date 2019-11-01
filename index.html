@@ -5,7 +5,7 @@
     <head>
 
         <meta charset="utf-8">
-        <title>Trivia Game</title>
+        <title>Star Wars Trivia Game</title>
         <!-- Stylesheets -->
         <link rel="stylesheet" href="assets/css/reset.css">
         <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
@@ -20,22 +20,27 @@
 
         <div class="container" id="content">
 
-            <h1>Totally Trivial Trivia!</h1>
+            <h1>Star Wars Trivia Game!</h1>
 
+            <!-- Start Button -->
             <button class="main-button" id="start-button" type="button">Start</button>
 
+            <!-- Shows Remaining Time -->
             <p id="time-remaining">Time Remaining: <span>30</span></p>
 
+            <!-- Asks Question & Displays Other Game Information -->
             <p id="question">question?</p>
 
-            <!-- <button type="button" id="answer1" class="buttons"></button>
-            <button type="button" id="answer2" class="buttons"></button>
-            <button type="button" id="answer3" class="buttons"></button>
-            <button type="button" id="answer4" class="buttons"></button> -->
+            <!-- Correct -->
+            <div class="empty-div" id="empty-div1"></div>
 
-            <div id="empty-div1"></div>
-            <div id="empty-div2"></div>
+            <!-- Incorrect -->
+            <div class="empty-div" id="empty-div2"></div>
 
+            <!-- Unanswered -->
+            <div class="empty-div" id="empty-div3"></div>
+
+            <!-- Play Again -->
             <button class="main-button" id="restart-button" type="button">Play Again?</button>
 
         </div>

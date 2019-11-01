@@ -2,25 +2,27 @@
 
 body {
     background-image: url(../images/background.jpg);
+    background-repeat: repeat;
+    color: white;
 }
 
 /* Container */
 
 .container {
-    background-color: coral;
+    background-color: black;
     width: 80%;
     height: 800px;
     margin: auto;
     margin-top: 100px;
     text-align: center;
-    border: black 5px solid;
+    border: yellow 5px solid;
 }
 
 /* Text */
 
 h1 {
     font-size: 100px;
-    color: rebeccapurple;
+    color: yellow;
     padding-top: 30px;
 }
 
@@ -38,13 +40,7 @@ h1 {
     font-size: 70px;
 }
 
-#empty-div1 {
-    margin-top: 15px;
-    font-size: 45px;
-    font-weight: bold;
-}
-
-#empty-div2 {
+.empty-div {
     margin-top: 15px;
     font-size: 45px;
     font-weight: bold;
@@ -57,25 +53,43 @@ button {
     text-align: center;
     font-size: 40px;
     padding: 15px 100px 15px 100px;
-    background-color: coral;
-    border: black 5px solid;
+    background-color: grey;
+    border: yellow 2px solid;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
 }
 
-button:hover{
+button:hover {
+    color: green;
     background-color: yellow;
+    border: yellow 5px solid;
+    padding: 12px 100px 12px 100px;
+
 }
 
 .main-button {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 60px;
     padding: 50px 100px 50px 100px;
     font-size: 50px;
-    background-color: coral;
-    color: rebeccapurple;
-    border: black 5px solid;
+    background-color: grey;
+    color: yellow;
+    border: yellow 2px solid;
     width: 50%;
+}
+
+.main-button:hover {
+    padding: 47px 100px 47px 100px;
+
+}
+
+/* Images */
+
+.images {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 40%;
 }
