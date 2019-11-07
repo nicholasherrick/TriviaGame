@@ -105,7 +105,7 @@ function question1() {
                 stopClock();
                 $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
                 $("#question").html("Times Up! The correct answer was " + questions[0].choices[0]);
-                $("#question").append("<img class='images' src='assets/images/timesup.webp'>");
+                $("#question").append("<img class='images' src='assets/images/timesup.gif'>");
                 unanswered++;
                 console.log("Correct: " + correct);
                 console.log("Incorrect: " + incorrect);
@@ -127,7 +127,7 @@ function question1() {
             $("#time-remaining").hide();
             $("#answer1, #answer2, #answer3, #answer4").hide();
             $("#question").html("Correct!");
-            $("#question").append("<img class='images' src='assets/images/correct.webp'>");
+            $("#question").append("<img class='images' src='assets/images/correct.gif'>");
             correct++;
             console.log("Correct: " + correct);
             console.log("Incorrect: " + incorrect);
@@ -184,7 +184,7 @@ function question2() {
                 stopClock();
                 $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
                 $("#question").html("Times Up! The correct answer was " + questions[1].choices[2]);
-                $("#question").append("<img class='images' src='assets/images/timesup.webp'>");
+                $("#question").append("<img class='images' src='assets/images/timesup.gif'>");
                 unanswered++;
                 console.log("Correct: " + correct);
                 console.log("Incorrect: " + incorrect);
@@ -202,7 +202,7 @@ function question2() {
             $("#time-remaining").hide();
             $("#answer1, #answer2, #answer3, #answer4").hide();
             $("#question").html("Correct!");
-            $("#question").append("<img class='images' src='assets/images/correct.webp'>");
+            $("#question").append("<img class='images' src='assets/images/correct.gif'>");
             correct++;
             console.log("Correct: " + correct);
             console.log("Incorrect: " + incorrect);
@@ -257,7 +257,7 @@ function question3() {
                 stopClock();
                 $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
                 $("#question").html("Times Up! The correct answer was " + questions[2].choices[2]);
-                $("#question").append("<img class='images' src='assets/images/timesup.webp'>");
+                $("#question").append("<img class='images' src='assets/images/timesup.gif'>");
                 unanswered++;
                 console.log("Correct: " + correct);
                 console.log("Incorrect: " + incorrect);
@@ -275,7 +275,7 @@ function question3() {
             $("#time-remaining").hide();
             $("#answer1, #answer1, #answer2, #answer4").hide();
             $("#question").html("Correct!");
-            $("#question").append("<img class='images' src='assets/images/correct.webp'>");
+            $("#question").append("<img class='images' src='assets/images/correct.gif'>");
             correct++;
             console.log("Correct: " + correct);
             console.log("Incorrect: " + incorrect);
@@ -330,7 +330,7 @@ function question4() {
                 stopClock();
                 $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
                 $("#question").html("Times Up! The correct answer was " + questions[3].choices[3]);
-                $("#question").append("<img class='images' src='assets/images/timesup.webp'>");
+                $("#question").append("<img class='images' src='assets/images/timesup.gif'>");
                 unanswered++;
                 console.log("Correct: " + correct);
                 console.log("Incorrect: " + incorrect);
@@ -348,7 +348,7 @@ function question4() {
             $("#time-remaining").hide();
             $("#answer1, #answer2, #answer3, #answer4").hide();
             $("#question").html("Correct!");
-            $("#question").append("<img class='images' src='assets/images/correct.webp'>");
+            $("#question").append("<img class='images' src='assets/images/correct.gif'>");
             correct++;
             console.log("Correct: " + correct);
             console.log("Incorrect: " + incorrect);
@@ -403,7 +403,7 @@ function question5() {
                 stopClock();
                 $("#time-remaining, #answer1, #answer2, #answer3, #answer4").hide();
                 $("#question").html("Times Up! The correct answer was " + questions[4].choices[1]);
-                $("#question").append("<img class='images' src='assets/images/timesup.webp'>");
+                $("#question").append("<img class='images' src='assets/images/timesup.gif'>");
                 unanswered++;
                 console.log("Correct: " + correct);
                 console.log("Incorrect: " + incorrect);
@@ -421,7 +421,7 @@ function question5() {
             $("#time-remaining").hide();
             $("#answer1, #answer2, #answer3, #answer4").hide();
             $("#question").html("Correct!");
-            $("#question").append("<img class='images' src='assets/images/correct.webp'>");
+            $("#question").append("<img class='images' src='assets/images/correct.gif'>");
             correct++;
             console.log("Correct: " + correct);
             console.log("Incorrect: " + incorrect);
